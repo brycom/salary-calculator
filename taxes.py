@@ -11,10 +11,12 @@ tax_rates = {
 
 
 class TaxCalculation:
-    def __init__(self) -> None:
-        self.total_gross = person1.total_gross
-        self.county = person1.county
+    def __init__(self, total_gross, county,  total_net):
+        self.total_gross = total_gross
+        self.county = county
         self.yearly_income = person1.total_year_income
+        self.salery_after_tax = total_net
+# fixa så att skattesatsen byts vid 600.000kr istället
 
     def get_tax_rate(self):
         for t in tax_rates:
@@ -23,22 +25,23 @@ class TaxCalculation:
 
         if self.yearly_income >= state_tax_limmit:
             self.tax_rate += tax_rates["statlig"]
+
         else:
             pass
+
         print(f"the tax rate is: {self.tax_rate}%")
+        print(f"the total pay afdsf: {self.yearly_income}kr")
 
     def calculate_tax(self):
         self.tax = int(self.total_gross * self.tax_rate)
-        salery_after_tax = self.total_gross - self.tax
+        self.salery_after_tax = self.total_gross - self.tax
+        person1.total_net = self.salery_after_tax
         print(f"total tax: {self.tax}kr")
-        print(f"salery after taxes:{salery_after_tax}kr")
+        print(f"salery after taxes:{self.salery_after_tax}kr")
 
 
-test_tax = TaxCalculation()
-
-
-# finde out tax rate for individual by age and county
-# check total yearly pay
-# calculate taxbasede income
+# finde out tax rate for individual by county!!!
+# check total yearly pay!!!
+# calculate taxbasede income!!!
 # check taxfree pay
-# calculate total tax
+# calculate total tax!!!

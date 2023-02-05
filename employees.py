@@ -19,6 +19,7 @@ class person:
     manual_permission_required_pay: int
     overtime_pay: float
     total_gross: float
+    total_net: float
     total_year_income: float
     normal_workhours: float
     email_addres: str
@@ -41,7 +42,8 @@ person1 = person(
     manual_permission_required_pay=0,
     overtime_pay=1.25,
     total_gross=0,
-    total_year_income=600000,
+    total_net=0,
+    total_year_income=590000,
     normal_workhours=40,
     email_addres="wollibolli@tramseri.se",
 )

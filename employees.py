@@ -9,7 +9,7 @@ class person:
     county: str
     position: str
     hourly_rate: int
-    payout_account: int
+
     payout_day: int
     workhours: float
     overtime: float
@@ -23,42 +23,51 @@ class person:
     total_year_income: float
     normal_workhours: float
     email_addres: str
+    employment_number: int
+    bank_account: int
+    expire_date: str
+    account_balence: int
+    tax_account_balence: int
 
 
 person1 = person(
     employment_number=1234,
-    name="johan",
-    age=12,
-    county="alvesta",
-    position="simp",
-    hourly_rate=210,
-    payout_account=13456789,
+    name="jenny",
+    age=23,
+    county="växjö",
+    position="chef",
+    hourly_rate=142,
     payout_day=25,
-    workhours=52,
+    workhours=168,
     overtime=0,
-    sick_leave_days=5,
-    sickleave_times=2,
+    sick_leave_days=0,
+    sickleave_times=0,
     vacation_days=0,
     manual_permission_required_pay=0,
     overtime_pay=1.25,
     total_gross=0,
     total_net=0,
-    total_year_income=590000,
-    normal_workhours=40,
+    total_year_income=120000,
+    normal_workhours=168,
     email_addres="wollibolli@tramseri.se",
+    bank_account=123456789,
+    expire_date="2023-04-01",
+    account_balence=0,
+    tax_account_balence=0
 )
-# name
-# age
-# county
-# position
-# employment number
-# payout account
-# payout day
-# workhours
-# overtime
-# sick leave
-# vacation days
-# manual permission required pay
-# normal workhours
-# overtime pay
-# total pay for year
+
+
+@dataclass
+class BankAccount:
+
+    bank_account: int
+    expire_date: str
+    account_balence: int
+    tax_account_balence: int
+
+
+bank_account_1 = BankAccount(
+    bank_account=123456789,
+    expire_date="2023-04-01",
+    account_balence=0,
+    tax_account_balence=0)

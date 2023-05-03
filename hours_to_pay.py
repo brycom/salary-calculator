@@ -17,7 +17,7 @@ class HoursToGross:
         overtime_payrate,
         sickleav_days,
         sickleave_times,
-    ) -> None:
+    ):
         self.hourly_rate = hourly_rate
         self.workhours = workhours
         self.normal_workhours = normal_workhours

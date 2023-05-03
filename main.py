@@ -21,4 +21,5 @@ test_tax = TaxCalculation(
 
 test_tax.get_tax_rate()
 test_tax.calculate_tax()
+test_tax.tax_reduction()
 print(person1.total_year_income)

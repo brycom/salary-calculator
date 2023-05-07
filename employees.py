@@ -28,11 +28,6 @@ class person:
     total_year_income: float
     normal_workhours: float
     email_addres: str
-    employment_number: int
-    bank_account: int
-    expire_date: str
-    account_balence: int
-    tax_account_balence: int
 
 
 person1 = person(
@@ -60,10 +55,6 @@ person1 = person(
     total_year_income=120000,
     normal_workhours=168,
     email_addres="wollibolli@tramseri.se",
-    bank_account=123456789,
-    expire_date="2023-04-01",
-    account_balence=0,
-    tax_account_balence=0
 )
 
 person2 = person(
@@ -72,10 +63,10 @@ person2 = person(
     name="Mathias Brynolf",
     age=28,
     county="växjö",
-    position="test",
-    hourly_rate=238,
+    position="arbetare",
+    hourly_rate=206,
     payout_day=25,
-    workhours=230,
+    workhours=170,
     overtime=0,
     sick_leave_days=2,
     sickleave_times=1,
@@ -91,16 +82,11 @@ person2 = person(
     total_year_income=300000,
     normal_workhours=168,
     email_addres="wollibolli2@tramseri.se",
-    bank_account=123456789,
-    expire_date="2023-04-01",
-    account_balence=0,
-    tax_account_balence=0
 )
 
 
 @dataclass
 class BankAccount:
-
     bank_account: int
     expire_date: str
     account_balence: int
@@ -111,4 +97,5 @@ bank_account_1 = BankAccount(
     bank_account=123456789,
     expire_date="2023-04-01",
     account_balence=0,
-    tax_account_balence=0)
+    tax_account_balence=0,
+)

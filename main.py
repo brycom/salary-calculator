@@ -5,7 +5,6 @@ from taxes import TaxCalculation
 
 
 def main(employee):
-
     gross = HoursToGross(employee)
     gross.check_for_overtime()
     gross.hours_to_gross_salery()
@@ -16,10 +15,7 @@ def main(employee):
 
     tax.get_tax_rate()
     tax.calculate_tax(employee)
-    tax.tax_reduction(employee)
     payslip(employee)
-    print(employee.total_gross * 12)
-    print(employee.total_gross)
 
 
 if __name__ == "__main__":

@@ -1,25 +1,26 @@
-from employees import person1
+from employees import *
 from hours_to_pay import HoursToGross
+from payslip import payslip
 from taxes import TaxCalculation
 
-test_gross = HoursToGross(
-    person1.hourly_rate,
-    person1.workhours,
-    person1.normal_workhours,
-    person1.overtime,
-    person1.overtime_pay,
-    person1.sick_leave_days,
-    person1.sickleave_times,
-)
-test_gross.check_for_overtime()
-test_gross.hours_to_gross_salery()
-test_gross.gross_sickleav_pay()
-test_gross.total_gross_pay()
 
-test_tax = TaxCalculation(
-    person1.total_gross, person1.county, person1.total_net)
+def main(employee):
 
-test_tax.get_tax_rate()
-test_tax.calculate_tax()
-test_tax.tax_reduction()
-print(person1.total_year_income)
+    gross = HoursToGross(employee)
+    gross.check_for_overtime()
+    gross.hours_to_gross_salery()
+    gross.gross_sickleav_pay()
+    gross.total_gross_pay(employee)
+
+    tax = TaxCalculation(employee)
+
+    tax.get_tax_rate()
+    tax.calculate_tax(employee)
+    tax.tax_reduction(employee)
+    payslip(employee)
+    print(employee.total_gross * 12)
+    print(employee.total_gross)
+
+
+if __name__ == "__main__":
+    main(person2)

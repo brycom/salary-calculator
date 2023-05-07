@@ -1,30 +1,15 @@
-# normal workhours to pay!!
-# overtime to pay!!
-# sickleav to pay!!
-# manual permission required time to pay
-# total pay before taxes minus tax free pay
-# taxfree pay
-from employees import person1
-
 
 class HoursToGross:
     def __init__(
-        self,
-        hourly_rate,
-        workhours,
-        normal_workhours,
-        overtime,
-        overtime_payrate,
-        sickleav_days,
-        sickleave_times,
+        self, employee
     ):
-        self.hourly_rate = hourly_rate
-        self.workhours = workhours
-        self.normal_workhours = normal_workhours
-        self.overtime = overtime
-        self.overtime_payrate = overtime_payrate
-        self.sickleav = sickleav_days
-        self.sickleave_times = sickleave_times
+        self.hourly_rate = employee.hourly_rate
+        self.workhours = employee.workhours
+        self.normal_workhours = employee.normal_workhours
+        self.overtime = employee.overtime
+        self.overtime_payrate = employee.overtime_pay
+        self.sickleav = employee.sick_leave_days
+        self.sickleave_times = employee.sickleave_times
         self.total_gross = []
 
     def check_for_overtime(
@@ -34,32 +19,28 @@ class HoursToGross:
             overtime = self.workhours - self.normal_workhours
             self.overtime = self.overtime + overtime
             self.workhours = self.normal_workhours
-            print(f"ovrtime: {self.overtime}h workhours: {self.workhours}h")
 
         else:
             pass
 
     def hours_to_gross_salery(self):
         gross_normal_workhours = int(self.workhours * self.hourly_rate)
-        overtime_payrate = self.hourly_rate * self.overtime_payrate
-        gross_overtime_workhours = int(self.overtime * overtime_payrate)
-        print(
-            f"normal pay: {gross_normal_workhours}kr \novertime pay: {gross_overtime_workhours}kr"
-        )
+        overtime_payrate = int(self.hourly_rate * self.overtime_payrate)
+        self.gross_overtime_workhours = int(self.overtime * overtime_payrate)
         # return gross_normal_workhours, gross_overtime_workhours
         self.total_gross.extend(
-            [gross_normal_workhours, gross_overtime_workhours])
+            [gross_normal_workhours, self.gross_overtime_workhours])
 
     def gross_sickleav_pay(self):
         payd_sickleav = self.sickleav - self.sickleave_times
         sickleav_payrate = int(self.hourly_rate * 0.8 * 8)
-        gross_sickleav = payd_sickleav * sickleav_payrate
-        print(f"sick days:{self.sickleav} \nsick pay: {gross_sickleav}kr")
-        self.total_gross.append(gross_sickleav)
+        self.gross_sickleav = payd_sickleav * sickleav_payrate
+        self.total_gross.append(self.gross_sickleav)
 
-    def total_gross_pay(self):
+    def total_gross_pay(self, employee):
         total_gross = sum(self.total_gross)
-        person1.total_gross = total_gross
-        person1.total_year_income += total_gross
-        print(f"total: {person1.total_gross}kr")
-        print(f"total år: {person1.total_year_income}kr")
+        employee.total_gross = total_gross
+        employee.total_year_income += total_gross
+        employee.overtime = self.overtime
+        employee.total_overtime_pay = self.gross_overtime_workhours
+        employee.total_sick_pay = int(self.gross_sickleav)

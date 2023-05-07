@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class person:
+    company: str
     employment_number: int
     name: str
     age: int
@@ -18,8 +19,12 @@ class person:
     vacation_days: int
     manual_permission_required_pay: int
     overtime_pay: float
+    total_overtime_pay: float
+    total_sick_pay: float
     total_gross: float
     total_net: float
+    total_tax: float
+    total_year_tax: float
     total_year_income: float
     normal_workhours: float
     email_addres: str
@@ -31,25 +36,61 @@ class person:
 
 
 person1 = person(
+    company="the company",
     employment_number=1234,
-    name="jenny",
+    name="jenny Hellqist",
     age=23,
     county="växjö",
     position="chef",
     hourly_rate=142,
     payout_day=25,
-    workhours=168,
+    workhours=180,
     overtime=0,
-    sick_leave_days=0,
-    sickleave_times=0,
+    sick_leave_days=7,
+    sickleave_times=3,
     vacation_days=0,
     manual_permission_required_pay=0,
     overtime_pay=1.25,
-    total_gross=0,
+    total_overtime_pay=0,
+    total_sick_pay=0,
+    total_gross=54000,
     total_net=0,
+    total_tax=0,
+    total_year_tax=0,
     total_year_income=120000,
     normal_workhours=168,
     email_addres="wollibolli@tramseri.se",
+    bank_account=123456789,
+    expire_date="2023-04-01",
+    account_balence=0,
+    tax_account_balence=0
+)
+
+person2 = person(
+    company="the company",
+    employment_number=4321,
+    name="Mathias Brynolf",
+    age=28,
+    county="växjö",
+    position="test",
+    hourly_rate=238,
+    payout_day=25,
+    workhours=230,
+    overtime=0,
+    sick_leave_days=2,
+    sickleave_times=1,
+    vacation_days=0,
+    manual_permission_required_pay=0,
+    overtime_pay=1.25,
+    total_overtime_pay=0,
+    total_sick_pay=0,
+    total_gross=0,
+    total_net=0,
+    total_tax=0,
+    total_year_tax=0,
+    total_year_income=300000,
+    normal_workhours=168,
+    email_addres="wollibolli2@tramseri.se",
     bank_account=123456789,
     expire_date="2023-04-01",
     account_balence=0,

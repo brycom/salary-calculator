@@ -63,7 +63,7 @@ person1 = person(
     bank_account=123456789,
     expire_date="2023-04-01",
     account_balence=0,
-    tax_account_balence=0
+    tax_account_balence=0,
 )
 
 person2 = person(
@@ -75,7 +75,7 @@ person2 = person(
     position="test",
     hourly_rate=238,
     payout_day=25,
-    workhours=230,
+    workhours=168,
     overtime=0,
     sick_leave_days=2,
     sickleave_times=1,
@@ -94,13 +94,12 @@ person2 = person(
     bank_account=123456789,
     expire_date="2023-04-01",
     account_balence=0,
-    tax_account_balence=0
+    tax_account_balence=0,
 )
 
 
 @dataclass
 class BankAccount:
-
     bank_account: int
     expire_date: str
     account_balence: int
@@ -111,4 +110,5 @@ bank_account_1 = BankAccount(
     bank_account=123456789,
     expire_date="2023-04-01",
     account_balence=0,
-    tax_account_balence=0)
+    tax_account_balence=0,
+)
